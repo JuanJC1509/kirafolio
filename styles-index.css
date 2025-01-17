@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #000;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+header, nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+}
+
+.switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch label {
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    position: relative;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.switch label::before {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.switch input:checked + label {
+    background-color: #000;
+}
+
+.switch input:checked + label::before {
+    transform: translateX(30px);
+}
+
+.switch .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.switch .icon.sun {
+    background: url('sun-icon.png') no-repeat center center;
+    background-size: contain;
+}
+
+.switch .icon.moon {
+    background: url('moon-icon.png') no-repeat center center;
+    background-size: contain;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00f;
+}
+
+section {
+    padding: 20px;
+    background-color: #e6f2ff;
+    border: 2px solid #00f;
+    border-radius: 5px;
+}
+
+body.dark-mode section {
+    background-color: #333;
+    color: #fff;
+}
+
+.right-image {
+    width: 100px;
+    height: 150px;
+    float: right;
+    margin-left: 20px;
+    border: 1px solid #00f;
+    border-radius: 5px;
+}
+
+.parciales {
+    display: flex;
+    justify-content: space-between;
+}
+
+#evidencias .parcial {
+    position: relative;
+    margin-bottom: 20px;
+    flex: 1;
+    background-color: #cce6ff;
+    border: 2px solid #00f;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+body.dark-mode #evidencias .parcial {
+    background-color: #001f3f;
+    border: 2px solid #0056b3;
+}
+
+#evidencias .parcial h3 {
+    cursor: pointer;
+    color: #00f;
+}
+
+#evidencias .parcial .contenido {
+    display: none;
+    margin-top: 10px;
+}
+
+#evidencias .parcial:hover .contenido {
+    display: block;
+}
+
+#evidencias .parcial img {
+    width: 100px;
+    height: 150px;
+    float: right;
+    margin-left: 20px;
+    border: 1px solid #00f;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
