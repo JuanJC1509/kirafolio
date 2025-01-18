@@ -5,11 +5,13 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.5s, color 0.5s;
+    border-radius: 10px; /* Suavizar los bordes de la página */
 }
 
 body.dark-mode {
     background-color: #121212;
     color: #fff;
+    border-radius: 10px; /* Suavizar los bordes de la página */
 }
 
 header, nav {
@@ -18,6 +20,7 @@ header, nav {
     padding: 10px 0;
     text-align: center;
     position: relative;
+    border-radius: 10px; /* Suavizar los bordes */
 }
 
 .switch {
@@ -105,65 +108,72 @@ nav ul li a:hover {
 section {
     padding: 20px;
     background-color: #e6f2ff;
-    border: 2px solid #00f;
-    border-radius: 5px;
+    border-radius: 10px; /* Suavizar los bordes */
+    transition: background-color 0.5s, color 0.5s, border-radius 0.5s; /* Suavizar la transición */
 }
 
 body.dark-mode section {
     background-color: #333;
     color: #fff;
+    border-radius: 10px; /* Suavizar los bordes */
 }
 
 .right-image {
     width: 100px;
     height: 150px;
     float: right;
-    margin-left: 20px;
-    border: 1px solid #00f;
-    border-radius: 5px;
+    margin: 3px;
+    border: 3px solid rgba(0, 0, 0, 0.5); /* Margen negro de 3px con 50% de opacidad */
+    border-radius: 10px; /* Suavizar los bordes */
 }
 
 .parciales {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px; /* Interlineado entre parciales */
 }
 
 #evidencias .parcial {
     position: relative;
-    margin-bottom: 20px;
-    flex: 1;
     background-color: #cce6ff;
-    border: 2px solid #00f;
-    border-radius: 5px;
+    border-radius: 10px; /* Suavizar los bordes */
     padding: 10px;
+    transition: background-color 0.5s, color 0.5s, border-radius 0.5s; /* Suavizar la transición */
 }
 
 body.dark-mode #evidencias .parcial {
     background-color: #001f3f;
-    border: 2px solid #0056b3;
+    border-radius: 10px; /* Suavizar los bordes */
 }
 
 #evidencias .parcial h3 {
     cursor: pointer;
     color: #00f;
+    user-select: none; /* Evitar la selección del texto */
 }
 
 #evidencias .parcial .contenido {
     display: none;
     margin-top: 10px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out; /* Suavizar la aparición */
 }
 
-#evidencias .parcial:hover .contenido {
+#evidencias .parcial.show .contenido {
     display: block;
+    opacity: 1; /* Suavizar la aparición */
+    max-height: 1000px; /* Ajustar según el contenido */
 }
 
 #evidencias .parcial img {
     width: 100px;
     height: 150px;
     float: right;
-    margin-left: 20px;
-    border: 1px solid #00f;
-    border-radius: 5px;
+    margin: 3px;
+    border: 3px solid rgba(0, 0, 0, 0.5); /* Margen negro de 3px con 50% de opacidad */
+    border-radius: 10px; /* Suavizar los bordes */
 }
 
 footer {
@@ -171,8 +181,10 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    border-radius: 10px; /* Suavizar los bordes */
 }
 
 html {
     scroll-behavior: smooth;
+    border-radius: 10px; /* Suavizar los bordes */
 }
