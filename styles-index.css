@@ -14,13 +14,10 @@ body.dark-mode {
     border-radius: 10px; /* Suavizar los bordes de la página */
 }
 
-header, nav {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+header {
     position: relative;
-    border-radius: 10px; /* Suavizar los bordes */
+    text-align: center;
+    padding: 20px;
 }
 
 .switch {
