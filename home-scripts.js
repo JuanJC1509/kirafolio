@@ -17,15 +17,15 @@ function loadTheme() {
     }
 }
 
-// Función para mostrar el contenido de un parcial de forma suave
+// Función para mostrar el contenido de una evidencia de forma suave
 function toggleContent(event) {
-    const parcial = event.currentTarget;
-    const contenido = parcial.querySelector('.contenido');
+    const evidencia = event.currentTarget;
+    const contenido = evidencia.querySelector('.contenido');
 
-    // Cerrar todos los demás parciales
-    document.querySelectorAll('#evidencias .parcial').forEach(p => {
-        const otherContent = p.querySelector('.contenido');
-        if (p !== parcial) {
+    // Cerrar todas las demás evidencias
+    document.querySelectorAll('#evidencias .evidencia').forEach(e => {
+        const otherContent = e.querySelector('.contenido');
+        if (e !== evidencia) {
             otherContent.style.opacity = '0';
             otherContent.style.maxHeight = '0';
             setTimeout(() => {
@@ -34,7 +34,7 @@ function toggleContent(event) {
         }
     });
 
-    // Alternar el contenido del parcial actual
+    // Alternar el contenido de la evidencia actual
     if (contenido.style.display === 'block') {
         contenido.style.opacity = '0';
         contenido.style.maxHeight = '0';
@@ -50,9 +50,9 @@ function toggleContent(event) {
     }
 }
 
-// Añadir eventos de click a los parciales
-document.querySelectorAll('#evidencias .parcial').forEach(parcial => {
-    parcial.addEventListener('click', toggleContent);
+// Añadir eventos de click a las evidencias
+document.querySelectorAll('#evidencias .evidencia').forEach(evidencia => {
+    evidencia.addEventListener('click', toggleContent);
 });
 
 // Cargar el tema al cargar la página

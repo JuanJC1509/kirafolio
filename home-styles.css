@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', sans-serif;
     color: #000;
-    background-color: #fff;
+    background-color: #f0f8ff; /* Fondo claro */
     margin: 0;
     padding: 0;
     transition: background-color 0.5s, color 0.5s;
@@ -9,7 +11,7 @@ body {
 }
 
 body.dark-mode {
-    background-color: #121212;
+    background-color: #001f3f; /* Fondo oscuro */
     color: #fff;
     border-radius: 10px; /* Suavizar los bordes de la página */
 }
@@ -18,6 +20,12 @@ header {
     position: relative;
     text-align: center;
     padding: 20px;
+    background-color: #007bff; /* Color primario */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    border-radius: 10px; /* Suavizar los bordes */
+    transition: background-color 0.5s, color 0.5s;
+    margin-top: 0; /* Eliminar el margen superior */
 }
 
 .switch {
@@ -73,13 +81,33 @@ header {
 }
 
 .switch .icon.sun {
-    background: url('sun-icon.png') no-repeat center center;
-    background-size: contain;
+    color: #f39c12; /* Color del icono de sol */
 }
 
 .switch .icon.moon {
-    background: url('moon-icon.png') no-repeat center center;
-    background-size: contain;
+    color: #f1c40f; /* Color del icono de luna */
+}
+
+.title-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 0; /* Ajusta este valor según sea necesario */
+}
+
+.kira-image {
+    position: absolute;
+    top: -50px; /* Ajusta este valor según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    z-index: 1;
+}
+
+h1 {
+    position: relative;
+    z-index: 0;
+    margin-top: 0; /* Ajusta este valor según sea necesario */
 }
 
 nav ul {
@@ -93,19 +121,24 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #000; /* Color negro para las letras de la barra de navegación en modo claro */
     text-decoration: none;
     transition: color 0.3s;
 }
 
+body.dark-mode nav ul li a {
+    color: #fff; /* Color blanco para las letras de la barra de navegación en modo oscuro */
+}
+
 nav ul li a:hover {
-    color: #00f;
+    color: #0056b3; /* Color de enlace hover */
 }
 
 section {
     padding: 20px;
     background-color: #e6f2ff;
     border-radius: 10px; /* Suavizar los bordes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
     transition: background-color 0.5s, color 0.5s, border-radius 0.5s; /* Suavizar la transición */
 }
 
@@ -115,41 +148,58 @@ body.dark-mode section {
     border-radius: 10px; /* Suavizar los bordes */
 }
 
-.right-image {
-    width: 100px;
-    height: 150px;
-    float: right;
-    margin: 3px;
+.bio-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+}
+
+.left-image {
+    width: 150px;
+    height: auto;
+    float: left;
+    margin: 0 20px 20px 0;
     border: 3px solid rgba(0, 0, 0, 0.5); /* Margen negro de 3px con 50% de opacidad */
     border-radius: 10px; /* Suavizar los bordes */
 }
 
-.parciales {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Interlineado entre parciales */
+.right-image {
+    width: 150px;
+    height: auto;
+    float: right;
+    margin: 0 0 20px 20px;
+    border: 3px solid rgba(0, 0, 0, 0.5); /* Margen negro de 3px con 50% de opacidad */
+    border-radius: 10px; /* Suavizar los bordes */
 }
 
-#evidencias .parcial {
+.evidencias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Interlineado entre evidencias */
+}
+
+#evidencias .evidencia {
     position: relative;
     background-color: #cce6ff;
     border-radius: 10px; /* Suavizar los bordes */
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
     transition: background-color 0.5s, color 0.5s, border-radius 0.5s; /* Suavizar la transición */
 }
 
-body.dark-mode #evidencias .parcial {
+body.dark-mode #evidencias .evidencia {
     background-color: #001f3f;
     border-radius: 10px; /* Suavizar los bordes */
 }
 
-#evidencias .parcial h3 {
+#evidencias .evidencia h3 {
     cursor: pointer;
-    color: #00f;
+    color: #007bff; /* Color primario */
     user-select: none; /* Evitar la selección del texto */
 }
 
-#evidencias .parcial .contenido {
+#evidencias .evidencia .contenido {
     display: none;
     margin-top: 10px;
     opacity: 0;
@@ -158,19 +208,33 @@ body.dark-mode #evidencias .parcial {
     transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out; /* Suavizar la aparición */
 }
 
-#evidencias .parcial.show .contenido {
+#evidencias .evidencia.show .contenido {
     display: block;
     opacity: 1; /* Suavizar la aparición */
     max-height: 1000px; /* Ajustar según el contenido */
 }
 
-#evidencias .parcial img {
-    width: 100px;
-    height: 150px;
-    float: right;
-    margin: 3px;
-    border: 3px solid rgba(0, 0, 0, 0.5); /* Margen negro de 3px con 50% de opacidad */
-    border-radius: 10px; /* Suavizar los bordes */
+.pdf-link {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.pdf-link i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #d9534f; /* Color rojo para el icono de PDF */
+}
+
+.pdf-link a {
+    color: #000; /* Color negro para el enlace */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.pdf-link a:hover {
+    color: #0056b3; /* Color de enlace hover */
 }
 
 footer {
@@ -179,6 +243,7 @@ footer {
     text-align: center;
     padding: 10px 0;
     border-radius: 10px; /* Suavizar los bordes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
 html {
