@@ -50,6 +50,21 @@ function toggleContent(event) {
     }
 }
 
+// Función para alternar el menú desplegable
+function toggleMenu() {
+    const menu = document.querySelector('nav ul');
+    menu.classList.toggle('show');
+}
+
+// Cerrar el menú al hacer clic fuera de él
+document.addEventListener('click', function(event) {
+    const menu = document.querySelector('nav ul');
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+        menu.classList.remove('show');
+    }
+});
+
 // Añadir eventos de click a las evidencias
 document.querySelectorAll('#evidencias .evidencia').forEach(evidencia => {
     evidencia.addEventListener('click', toggleContent);

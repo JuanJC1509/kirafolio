@@ -197,6 +197,7 @@ body.dark-mode #evidencias .evidencia {
     cursor: pointer;
     color: #007bff; /* Color primario */
     user-select: none; /* Evitar la selección del texto */
+    font-size: 1.2em; /* Tamaño de fuente más pequeño */
 }
 
 #evidencias .evidencia .contenido {
@@ -249,4 +250,64 @@ footer {
 html {
     scroll-behavior: smooth;
     border-radius: 10px; /* Suavizar los bordes */
+}
+
+/* Media Queries para dispositivos móviles y tablets */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #007bff; /* Color primario */
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        color: #fff; /* Color blanco para las letras de la barra de navegación en modo claro */
+    }
+
+    body.dark-mode nav ul {
+        background-color: #001f3f; /* Fondo oscuro */
+    }
+
+    body.dark-mode nav ul li a {
+        color: #fff; /* Color blanco para las letras de la barra de navegación en modo oscuro */
+    }
+
+    .right-image {
+        width: 100px; /* Ajustar el tamaño de la imagen */
+        margin: 0 auto 20px auto; /* Centrar la imagen */
+    }
+
+    #evidencias .evidencia h3 {
+        font-size: 1em; /* Tamaño de fuente más pequeño */
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Ocultar el botón del menú en escritorio */
+    }
 }
